@@ -25,14 +25,20 @@ class Diamond {
     }
 
     private fun createBodyForB(): String {
-        return "B B"
+        val space = " ".repeat(1)
+        val b = "B${space}B"
+        return b
     }
 
     private fun createBodyForC(): String {
-        return "C   C"
+        val space = " ".repeat(3)
+        val c = "C${space}C"
+        return c
     }
 
     private fun createBodyForD(): String {
-        return "D     D"
+        val space = " ".repeat(5)
+        val d = "D${space}D"
+        return d
     }
 }
