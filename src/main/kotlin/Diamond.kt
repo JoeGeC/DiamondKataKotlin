@@ -26,19 +26,19 @@ class Diamond {
 
     private fun createBodyForB(): String {
         val space = " ".repeat(1)
-        val b = "B${space}B"
-        return b
+        val char = "B"
+        return "$char${space}$char"
     }
 
     private fun createBodyForC(): String {
         val space = " ".repeat(3)
-        val c = "C${space}C"
-        return c
+        val char = "C"
+        return "$char${space}$char"
     }
 
     private fun createBodyForD(): String {
         val space = " ".repeat(5)
-        val d = "D${space}D"
-        return d
+        val char = "D"
+        return "$char${space}$char"
     }
 }
