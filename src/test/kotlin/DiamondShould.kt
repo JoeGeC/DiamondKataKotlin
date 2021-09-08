@@ -11,18 +11,30 @@ class DiamondShould {
     @Test
     fun `convert B`(){
         val diamond = Diamond()
-        assertEquals(" A \n" +
+        assertEquals(" A\n" +
                 "B B\n" +
-                " A \n", diamond.convert("B"))
+                " A\n", diamond.convert("B"))
     }
 
     @Test
     fun `convert C`(){
         val diamond = Diamond()
-        assertEquals("  A  \n" +
-                " B B \n" +
+        assertEquals("  A\n" +
+                " B B\n" +
                 "C   C\n" +
-                " B B \n" +
-                "  A  \n", diamond.convert("C"))
+                " B B\n" +
+                "  A\n", diamond.convert("C"))
+    }
+
+    @Test
+    fun `convert D`(){
+        val diamond = Diamond()
+        assertEquals("   A\n" +
+                "  B B\n" +
+                " C   C\n" +
+                "D     D\n" +
+                " C   C\n" +
+                "  B B\n" +
+                "   A\n", diamond.convert("D"))
     }
 }
