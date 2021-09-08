@@ -2,43 +2,46 @@ class Diamond {
     fun convert(letter: String): String {
         if (letter == "D") {
             return "   A\n" +
-                    "  ${createBodyForB()}\n" +
-                    " ${createBodyForC()}\n" +
-                    "${createBodyForD()}\n" +
-                    " ${createBodyForC()}\n" +
-                    "  ${createBodyForB()}\n" +
+                    "  ${createBodyForB("B")}\n" +
+                    " ${createBodyForC("C")}\n" +
+                    "${createBodyForD("D")}\n" +
+                    " ${createBodyForC("C")}\n" +
+                    "  ${createBodyForB("B")}\n" +
                     "   A\n"
         }
         if (letter == "C") {
             return "  A\n" +
-                    " ${createBodyForB()}\n" +
-                    "${createBodyForC()}\n" +
-                    " ${createBodyForB()}\n" +
+                    " ${createBodyForB("B")}\n" +
+                    "${createBodyForC("C")}\n" +
+                    " ${createBodyForB("B")}\n" +
                     "  A\n"
         }
         if (letter == "B") {
             return " A\n" +
-                    "${createBodyForB()}\n" +
+                    "${createBodyForB("B")}\n" +
                     " A\n"
         }
         return "A"
     }
 
-    private fun createBodyForB(): String {
-        val space = " ".repeat(1)
-        val char = "B"
+    private fun createBodyForB(char: String): String {
+        val space = " ".repeat(spacesFor(char))
         return "$char${space}$char"
     }
 
-    private fun createBodyForC(): String {
-        val space = " ".repeat(3)
-        val char = "C"
+    private fun createBodyForC(char: String): String {
+        val space = " ".repeat(spacesFor(char))
         return "$char${space}$char"
     }
 
-    private fun createBodyForD(): String {
-        val space = " ".repeat(5)
-        val char = "D"
+    private fun createBodyForD(char: String): String {
+        val space = " ".repeat(spacesFor(char))
         return "$char${space}$char"
+    }
+
+    private fun spacesFor(char: String) : Int {
+        if(char == "B") return 1
+        if(char == "C") return 3
+        return 5
     }
 }
