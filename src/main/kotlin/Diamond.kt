@@ -1,4 +1,6 @@
 class Diamond {
+    private val chars = mapOf("B" to 1, "C" to 3, "D" to 5)
+
     fun convert(letter: String): String {
         if (letter == "D") {
             return "   A\n" +
@@ -30,8 +32,6 @@ class Diamond {
     }
 
     private fun spacesFor(char: String) : Int {
-        if(char == "B") return 1
-        if(char == "C") return 3
-        return 5
+        return chars[char] ?: 0
     }
 }
