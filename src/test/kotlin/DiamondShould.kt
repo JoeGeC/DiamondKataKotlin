@@ -15,4 +15,14 @@ class DiamondShould {
                 "B B\n" +
                 " A \n", diamond.convert("B"))
     }
+
+    @Test
+    fun `convert C`(){
+        val diamond = Diamond()
+        assertEquals("  A  \n" +
+                " B B \n" +
+                "C   C\n" +
+                " B B \n" +
+                "  A  \n", diamond.convert("C"))
+    }
 }
