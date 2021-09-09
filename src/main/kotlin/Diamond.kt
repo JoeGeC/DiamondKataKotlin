@@ -1,5 +1,5 @@
 class Diamond {
-    private val chars = mapOf("B" to 1, "C" to 3, "D" to 5)
+    private val chars = listOf("A", "B", "C", "D")
 
     fun convert(letter: String): String {
         if (letter == "D") {
@@ -27,11 +27,15 @@ class Diamond {
     }
 
     private fun createBodyFor(char: String): String {
-        val space = " ".repeat(spacesFor(char))
+        val space = " ".repeat(middleSpacesFor(char))
         return "$char${space}$char"
     }
 
-    private fun spacesFor(char: String) : Int {
-        return chars[char] ?: 0
+    private fun middleSpacesFor(char: String) : Int {
+        return chars.indexOf(char) * 2 - 1
     }
+
+//    private fun startingSpacesFor(char: String, letter: String) : Int {
+//        return
+//    }
 }
