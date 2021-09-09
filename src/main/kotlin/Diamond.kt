@@ -3,32 +3,33 @@ class Diamond {
 
     fun convert(letter: String): String {
         if (letter == "D") {
-            return "   A\n" +
+            return "${createBodyFor("A", letter)}\n" +
                     "${createBodyFor("B", letter)}\n" +
                     "${createBodyFor("C", letter)}\n" +
                     "${createBodyFor("D", letter)}\n" +
                     "${createBodyFor("C", letter)}\n" +
                     "${createBodyFor("B", letter)}\n" +
-                    "   A\n"
+                    "${createBodyFor("A", letter)}\n"
         }
         if (letter == "C") {
-            return "  A\n" +
+            return "${createBodyFor("A", letter)}\n" +
                     "${createBodyFor("B", letter)}\n" +
                     "${createBodyFor("C", letter)}\n" +
                     "${createBodyFor("B", letter)}\n" +
-                    "  A\n"
+                    "${createBodyFor("A", letter)}\n"
         }
         if (letter == "B") {
-            return " A\n" +
+            return "${createBodyFor("A", letter)}\n" +
                     "${createBodyFor("B", letter)}\n" +
-                    " A\n"
+                    "${createBodyFor("A", letter)}\n"
         }
         return "A"
     }
 
     private fun createBodyFor(char: String, letter: String): String {
-        val middleSpaces = " ".repeat(middleSpacesFor(char))
         val startingSpaces = " ".repeat(startingSpacesFor(char, letter))
+        if(char == "A") return "${startingSpaces}$char"
+        val middleSpaces = " ".repeat(middleSpacesFor(char))
         return "${startingSpaces}$char${middleSpaces}$char"
     }
 
