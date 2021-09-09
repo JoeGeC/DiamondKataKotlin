@@ -5,7 +5,7 @@ class DiamondShould {
     @Test
     fun `convert A`(){
         val diamond = Diamond()
-        assertEquals("A", diamond.convert("A"))
+        assertEquals("A\n", diamond.convert("A"))
     }
 
     @Test

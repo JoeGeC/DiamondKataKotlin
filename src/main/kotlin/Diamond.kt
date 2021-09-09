@@ -2,28 +2,16 @@ class Diamond {
     private val chars = listOf("A", "B", "C", "D")
 
     fun convert(letter: String): String {
-        if (letter == "D") {
-            return "${createBodyFor("A", letter)}\n" +
-                    "${createBodyFor("B", letter)}\n" +
-                    "${createBodyFor("C", letter)}\n" +
-                    "${createBodyFor("D", letter)}\n" +
-                    "${createBodyFor("C", letter)}\n" +
-                    "${createBodyFor("B", letter)}\n" +
-                    "${createBodyFor("A", letter)}\n"
-        }
-        if (letter == "C") {
-            return "${createBodyFor("A", letter)}\n" +
-                    "${createBodyFor("B", letter)}\n" +
-                    "${createBodyFor("C", letter)}\n" +
-                    "${createBodyFor("B", letter)}\n" +
-                    "${createBodyFor("A", letter)}\n"
-        }
-        if (letter == "B") {
-            return "${createBodyFor("A", letter)}\n" +
-                    "${createBodyFor("B", letter)}\n" +
-                    "${createBodyFor("A", letter)}\n"
-        }
-        return "A"
+        return buildLines(letter)
+    }
+
+    private fun buildLines(letter: String): String {
+        var result = ""
+        for(i in 0..chars.indexOf(letter))
+            result += "${createBodyFor(chars[i], letter)}\n"
+        for(i in chars.indexOf(letter) - 1 downTo 0)
+            result += "${createBodyFor(chars[i], letter)}\n"
+        return result
     }
 
     private fun createBodyFor(char: String, letter: String): String {
