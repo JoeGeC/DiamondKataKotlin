@@ -23,7 +23,7 @@ class Diamond {
 
     private fun createBodyFor(char: String, letter: String): String {
         val startingSpaces = " ".repeat(startingSpacesFor(char, letter))
-        if(char == "A") return "${startingSpaces}$char"
+        if(char == chars[0]) return "${startingSpaces}$char"
         val middleSpaces = " ".repeat(middleSpacesFor(char))
         return "${startingSpaces}$char${middleSpaces}$char"
     }
