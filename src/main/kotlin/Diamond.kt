@@ -2,14 +2,21 @@ class Diamond {
     private val chars = listOf("A", "B", "C", "D")
 
     fun convert(letter: String): String {
-        return buildLines(letter)
+        var result = createTopOfDiamond(letter)
+        result += createBottomOfDiamond(letter)
+        return result
     }
 
-    private fun buildLines(letter: String): String {
+    private fun createTopOfDiamond(letter: String): String {
         var result = ""
-        for(i in 0..chars.indexOf(letter))
+        for (i in 0..chars.indexOf(letter))
             result += "${createBodyFor(chars[i], letter)}\n"
-        for(i in chars.indexOf(letter) - 1 downTo 0)
+        return result
+    }
+
+    private fun createBottomOfDiamond(letter: String): String {
+        var result = ""
+        for (i in chars.indexOf(letter) - 1 downTo 0)
             result += "${createBodyFor(chars[i], letter)}\n"
         return result
     }
