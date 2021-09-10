@@ -2,15 +2,8 @@ class Diamond {
     private val chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
     fun convert(letter: String): String {
-        return createDiamondHalf(letter)
-    }
-
-    private fun createDiamondHalf(letter: String): String {
-        var result = ""
         val range = (0..chars.indexOf(letter)) + (chars.indexOf(letter) - 1 downTo 0)
-        for (i in range)
-            result += "${createBodyFor(chars[i], letter)}\n"
-        return result
+        return range.fold("") { acc, i -> acc + "${createBodyFor(chars[i], letter)}\n" }
     }
 
     private fun createBodyFor(char: Char, letter: String): String {
@@ -20,11 +13,7 @@ class Diamond {
         return "${startingSpaces}$char${middleSpaces}$char"
     }
 
-    private fun middleSpacesFor(char: Char) : Int {
-        return chars.indexOf(char) * 2 - 1
-    }
+    private fun middleSpacesFor(char: Char) : Int = chars.indexOf(char) * 2 - 1
 
-    private fun startingSpacesFor(char: Char, letter: String) : Int {
-        return chars.indexOf(letter) - chars.indexOf(char)
-    }
+    private fun startingSpacesFor(char: Char, letter: String) : Int = chars.indexOf(letter) - chars.indexOf(char)
 }
