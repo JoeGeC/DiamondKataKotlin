@@ -2,13 +2,12 @@ class Diamond {
     private val chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
     fun convert(letter: String): String {
-        return createDiamondHalf(letter, true) + createDiamondHalf(letter, false)
+        return createDiamondHalf(letter)
     }
 
-    private fun createDiamondHalf(letter: String, top: Boolean): String {
+    private fun createDiamondHalf(letter: String): String {
         var result = ""
-        val range = if(top) 0..chars.indexOf(letter)
-        else chars.indexOf(letter) - 1 downTo 0
+        val range = (0..chars.indexOf(letter)) + (chars.indexOf(letter) - 1 downTo 0)
         for (i in range)
             result += "${createBodyFor(chars[i], letter)}\n"
         return result
